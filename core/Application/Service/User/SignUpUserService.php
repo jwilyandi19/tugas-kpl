@@ -45,8 +45,7 @@ class SignUpUserService
         );
 
         $this->userRepository->add($user);
-        // $this->userDataTransformer->write($user);
-        // return $this->userDataTransformer->read();
-        return $user;
+        $this->userDataTransformer->write($user);
+        return $this->userDataTransformer->read();
     }
 }

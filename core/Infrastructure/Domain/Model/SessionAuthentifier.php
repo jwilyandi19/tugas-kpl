@@ -1,6 +1,6 @@
 <?php
 
-namespace TugasKPL\Domain\Model;
+namespace TugasKPL\Infrastructure\Domain\Model;
 
 use TugasKPL\Domain\Model\User\User;
 
