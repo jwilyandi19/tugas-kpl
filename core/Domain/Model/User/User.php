@@ -24,7 +24,7 @@ class User {
     protected $ideas;
 
     /**
-     * @param int $userId
+     * @param string $userId
      * @param string $email
      * @param string $password
      */
@@ -64,7 +64,7 @@ class User {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function id()
     {
