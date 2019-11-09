@@ -1,8 +1,8 @@
 <?php
 
-namespace Lw\Application\DataTransformer\User;
+namespace TugasKPL\Application\DataTransformer;
 
-use Lw\Domain\Model\User\User;
+use TugasKPL\Domain\Model\User\User;
 
 interface UserDataTransformer
 {

@@ -2,7 +2,7 @@
 
 namespace TugasKPL\Application\DataTransformer;
 
-use Lw\Domain\Model\User\User;
+use TugasKPL\Domain\Model\User\User;
 
 class UserDataTransformerImple implements UserDataTransformer
 {
