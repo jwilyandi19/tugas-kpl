@@ -6,7 +6,6 @@ class Idea {
     protected $ideaId;
     protected $content;
     protected $description;
-    protected $userId;
 
     public function __construct($ideaId,$content,$description) {
         $this->ideaId = $ideaId;
@@ -27,6 +26,8 @@ class Idea {
         }
         $this->description = $description;
     }
+
+
 
 
 }
