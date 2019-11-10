@@ -4,7 +4,7 @@ namespace TugasKPL\Application\DataTransformer;
 
 use TugasKPL\Domain\Model\User\User;
 
-class UserDataTransformerImple implements UserDataTransformer
+class UserDataTransformerImpl implements UserDataTransformer
 {
     private $user;
 
