@@ -22,6 +22,7 @@ abstract class IdeaService {
         if (null === $user) {
             throw new UserDoesNotExistException();
         }
+        return $user;
     }  
     
 
