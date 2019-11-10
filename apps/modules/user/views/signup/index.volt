@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Hello World! from SignUP Module</h1>
+</body>
+
+</html>
