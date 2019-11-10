@@ -5,6 +5,8 @@ namespace TugasKPL\Application\Service\User;
 use TugasKPL\Application\Service\User\SignUpUserRequest;
 use TugasKPL\Domain\Model\User\User;
 use TugasKPL\Domain\Model\User\UserAlreadyExistsException;
+use TugasKPL\Domain\Model\User\UserRepository;
+use TugasKPL\Application\DataTransformer\UserDataTransformer;
 
 class SignUpUserService
 {

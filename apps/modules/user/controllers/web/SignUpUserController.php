@@ -1,9 +1,12 @@
 <?php
 
-namespace TugasKPL\Application\Controller;
+namespace Phalcon\Init\User\Controllers\Web;
 
+use MySQLPdo;
 use Phalcon\MVC\Controller;
+use TugasKPL\Application\DataTransformer\UserDataTransformerImpl;
 use TugasKPL\Application\Service\User\SignUpUserService;
+use TugasKPL\Infrastructure\Persistence\Sql\SqlUserRepository;
 
 class SignUpUserController extends Controller{
     
@@ -15,8 +18,19 @@ class SignUpUserController extends Controller{
     private $userNameRequestKey = "name";
     private $userPassRequestKey = "password";
     
+    public function onConstruct(){
+        $dbHost = getenv("DB_HOST");
+        $dbName = getenv("DB_NAME");
+        $dbUsername = getenv("DB_USERNAME");
+        $dbPassword = getenv("DB_PASSWORD");
+        $mysqlpdo = new MySQLPdo($dbHost, $dbName, $dbUsername, $dbPassword);
+        $sqlUserRepository = new SqlUserRepository($mysqlpdo);
+        $userDataTransformer = new UserDataTransformerImpl();
+        $this->signUpService = new SignUpUserService($sqlUserRepository, $userDataTransformer);
+    }
+
     public function indexAction(){
-        $this->view->pick('signup');
+        $this->view->pick('signup.index');
     }
 
     public function registerAction(){
@@ -27,6 +41,7 @@ class SignUpUserController extends Controller{
             $userName = $this->request->getPost($this->userNameRequestKey);
             $userPass = $this->request->getPost($this->userPassRequestKey);
         }
+
         echo($userName . $userPass);
     }
 }
