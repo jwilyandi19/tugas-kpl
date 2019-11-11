@@ -4,6 +4,21 @@
         "tuupola/ksuid": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "8"
+        "phpunit/phpunit": "8",
+        "phalcon/ide-stubs": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phalcon\\Init\\User\\": "apps/modules/user/",
+            "TugasKPL\\Application\\DataTransformer\\": "core/Application/DataTransformer/",
+            "TugasKPL\\Application\\Service\\": "core/Application/Service/",
+            "TugasKPL\\Application\\Service\\User\\": "core/Application/Service/User/",
+            "TugasKPL\\Domain\\Model\\": "core/Domain/Model/",
+            "TugasKPL\\Domain\\Model\\Idea\\": "core/Domain/Model/Idea/",
+            "TugasKPL\\Domain\\Model\\User\\": "core/Domain/Model/User/",
+            "TugasKPL\\Infrastructure\\Domain\\Model\\": "core/Infrastructure/Domain/Model/",
+            "TugasKPL\\Infrastructure\\Domain\\Model\\User\\": "core/Infrastructure/Domain/Model/User/",
+            "TugasKPL\\Infrastructure\\Persistence\\Sql\\Entity\\": "core/Infrastructure/Persistence/Domain/Entity/"
+        }
     }
 }

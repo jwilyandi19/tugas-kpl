@@ -29,7 +29,7 @@ return array(
         'apiControllerNamespace' => 'Phalcon\Init\User\Controllers\Api',
         'className' => 'Phalcon\Init\User\Module',
         'path' => APP_PATH . '/modules/user/Module.php',
-        'defaultRouting' => true,
+        'defaultRouting' => false,
         'defaultController' => 'user',
         'defaultAction' => 'index'
     ],
