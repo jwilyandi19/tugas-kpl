@@ -7,6 +7,7 @@ use TugasKPL\Domain\Model\User\User;
 use TugasKPL\Domain\Model\User\UserAlreadyExistsException;
 use TugasKPL\Domain\Model\User\UserRepository;
 use TugasKPL\Application\DataTransformer\UserDataTransformer;
+use Tuupola\Ksuid;
 
 class SignUpUserService
 {
@@ -38,10 +39,11 @@ class SignUpUserService
             throw new UserAlreadyExistsException();
         }
 
-        $ksuid = new Ksuid;
+        $ksuid = new Ksuid();
+        $ksuidString = $ksuid->string();
 
         $user = new User(
-            $ksuid,
+            $ksuidString,
             $email,
             $password
         );

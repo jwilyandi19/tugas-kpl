@@ -33,7 +33,7 @@ class User {
         $this->userId = $userId;
         $this->setEmail($email);
         $this->changePassword($password);
-        $this->ideas = new ArrayCollection();
+        $this->ideas = [];
     }
 
     /**
@@ -46,7 +46,6 @@ class User {
             throw new \InvalidArgumentException('email');
         }
 
-        Assertion::email($email);
         $this->email = strtolower($email);
     }
 
@@ -85,5 +84,13 @@ class User {
     public function password()
     {
         return $this->password;
+    }
+
+    /**
+     * @return array
+     */
+    public function ideas()
+    {
+        return $this->ideas;
     }
 }

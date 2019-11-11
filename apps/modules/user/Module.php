@@ -11,13 +11,13 @@ class Module implements ModuleDefinitionInterface
     public function registerAutoloaders(DiInterface $di = null)
     {
         $loader = new Loader();
-
+        $baseInfrastructure = '/../../../core/Infrastructure';
         $loader->registerNamespaces([
             'Phalcon\Init\User\Controllers\Web' => __DIR__ . '/controllers/web',
             'Phalcon\Init\User\Controllers\Api' => __DIR__ . '/controllers/api',
             'Phalcon\Init\User\Models' => __DIR__ . '/models',
+            'TugasKPL\Infrastructure\Persistence\Sql' => __DIR__ . $baseInfrastructure . '/Persistence/Sql' 
         ]);
-
         $loader->register();
     }
 
