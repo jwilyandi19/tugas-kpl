@@ -24,7 +24,4 @@ abstract class IdeaService {
         }
         return $user;
     }  
-    
-
-    
 }

@@ -33,4 +33,16 @@ return array(
         'defaultController' => 'user',
         'defaultAction' => 'index'
     ],
+
+    'idea' => [
+        'namespace' => 'Phalcon\Init\Idea',
+        'webControllerNamespace' => 'Phalcon\Init\Idea\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\Idea\Controllers\Api',
+        'className' => 'Phalcon\Init\Idea\Module',
+        'path' => APP_PATH . '/modules/idea/Module.php',
+        'defaultRouting' => false,
+        'defaultController' => 'idea',
+        'defaultAction' => 'index'
+    ],
+
 );

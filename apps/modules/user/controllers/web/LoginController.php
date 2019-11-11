@@ -36,13 +36,15 @@ class LoginController extends Controller{
         $this->sqlUserRepository = new SqlUserRepository($mysqlpdo);
         $session = new Session();
         $this->sessionAuth = new SessionAuthentifier($this->sqlUserRepository, $session);
-        $this->signUpService = new LogInUserService($this->sessionAuth);
+        $this->loginService = new LogInUserService($this->sessionAuth);
     }
 
     public function indexAction(){
         if ($this->sessionAuth->isAlreadyAuthenticated()){
-            return $this->response->redirect("tugas-kpl");
+            $this->view->setVar("isAuth", true);
+            return $this->response->redirect("/../../");
         }
+        $this->view->setVar("isAuth", false);
         $this->view->pick('login/index');
     }
 
@@ -51,14 +53,26 @@ class LoginController extends Controller{
         if ($this->request->isPost()) {
             $email = $this->request->getPost($this->userNameRequestKey);
             $password = $this->request->getPost($this->userPassRequestKey);
+            if($this->sessionAuth->isAlreadyAuthenticated()){
+                $this->sessionAuth->logout();
+            }
             $isAuthenticated = $this->loginService->execute($email, $password);
             if ($isAuthenticated) {
                 $user = $this->sqlUserRepository->ofEmail($email);
-                $this->sessionAuth->persistAuthentication($user);
-                return $this->response->redirect("tugas-kpl");
+                $this->view->setVar("isAuth", true);
+                return $this->response->redirect("/../");
             } else {
-                return $this->response->redirect("tugas-kpl/user/login");
+                $this->view->setVar("isAuth", false);
+                return $this->response->redirect("/../login");
             }
+        }
+    }
+
+    public function logoutAction(){
+        if ($this->sessionAuth->isAlreadyAuthenticated()){
+            $this->sessionAuth->logout();
+            $this->view->setVar('isAuth', false);
+            return $this->response->redirect("/../");
         }
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace TugasKPL\Application\Service\User;
+namespace TugasKPL\Application\Service\Idea;
 
 use TugasKPL\Domain\Model\Idea\IdeaDoesNotExistException;
 
 class ViewAllIdeasService extends IdeaService {
     public function execute() {
-        $ideas = $this->IdeaRepository->all();
+        $ideas = $this->ideaRepository->all();
         if(!$ideas) {
             throw new IdeaDoesNotExistException();
         }

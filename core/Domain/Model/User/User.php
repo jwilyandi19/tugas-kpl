@@ -1,5 +1,8 @@
 <?php
 namespace TugasKPL\Domain\Model\User;
+
+use TugasKPL\Domain\Model\Idea\Idea;
+
 class User {
     /**
      * @var int
@@ -39,11 +42,6 @@ class User {
         if (!$email) {
             throw new \InvalidArgumentException('email');
         }
-<<<<<<< HEAD
-        Assertion::email($email);
-=======
-
->>>>>>> master
         $this->email = strtolower($email);
     }
     /**
@@ -79,7 +77,6 @@ class User {
         return $this->password;
     }
 
-<<<<<<< HEAD
     public function makeIdea($ideaId, $content, $description) {
         return new Idea(
             $ideaId,
@@ -87,13 +84,13 @@ class User {
             $content,
             $description
         );
-=======
+    }
+
     /**
      * @return array
      */
     public function ideas()
     {
         return $this->ideas;
->>>>>>> master
     }
 }

@@ -9,6 +9,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Phalcon\\Init\\Idea\\": "apps/modules/idea/",
             "Phalcon\\Init\\User\\": "apps/modules/user/",
             "TugasKPL\\Application\\DataTransformer\\": "core/Application/DataTransformer/",
             "TugasKPL\\Application\\Service\\": "core/Application/Service/",
@@ -18,7 +19,7 @@
             "TugasKPL\\Domain\\Model\\User\\": "core/Domain/Model/User/",
             "TugasKPL\\Infrastructure\\Domain\\Model\\": "core/Infrastructure/Domain/Model/",
             "TugasKPL\\Infrastructure\\Domain\\Model\\User\\": "core/Infrastructure/Domain/Model/User/",
-            "TugasKPL\\Infrastructure\\Persistence\\Sql\\Entity\\": "core/Infrastructure/Persistence/Domain/Entity/"
+            "TugasKPL\\Infrastructure\\Persistence\\Sql\\": "core/Infrastructure/Persistence/Sql/"
         }
     }
 }

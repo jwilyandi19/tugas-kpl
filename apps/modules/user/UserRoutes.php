@@ -44,5 +44,12 @@ class UserRoutes extends RouterGroup
             'controller' => 'Login',
             'action' => 'login'
         ]);
+
+        $this->addGet('/logout',[
+            'namespace' => 'Phalcon\Init\User\Controllers\Web',
+            'module' => 'user',
+            'controller' => 'Login',
+            'action' => 'logout'
+        ]);
     }
 }

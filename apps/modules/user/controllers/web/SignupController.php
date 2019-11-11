@@ -8,6 +8,8 @@ use TugasKPL\Application\DataTransformer\UserDataTransformerImpl;
 use TugasKPL\Application\Service\User\SignUpUserService;
 use TugasKPL\Application\Service\User\SignUpUserRequest;
 use TugasKPL\Infrastructure\Persistence\Sql\SqlUserRepository;
+use Phalcon\Init\User\Controllers\Web\SessionAuthentifier;
+use Phalcon\Session\Adapter\Files as Session;
 
 class SignupController extends Controller{
     
@@ -16,19 +18,28 @@ class SignupController extends Controller{
      */
     private $signUpService;
 
-    
+    /**
+     * @var SessionAuthentifier
+     */
+    private $sessionAuth;
+
     private $userNameRequestKey = "email";
     private $userPassRequestKey = "password";
     
     public function onConstruct(){
         $mysqlpdoBuilder = new MySQLPdo();
         $mysqlpdo = $mysqlpdoBuilder->build();
+        $session = new Session();
+        $this->sessionAuth = new SessionAuthentifier($this->sqlUserRepository, $session);
         $sqlUserRepository = new SqlUserRepository($mysqlpdo);
         $userDataTransformer = new UserDataTransformerImpl();
         $this->signUpService = new SignUpUserService($sqlUserRepository, $userDataTransformer);
     }
 
     public function indexAction(){
+        if ($this->sessionAuth->isAlreadyAuthenticated()){
+            return $this->response->redirect("/../../");
+        }
         $this->view->pick('signup/index');
     }
 

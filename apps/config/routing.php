@@ -1,5 +1,6 @@
 <?php
 
+use Phalcon\Init\Idea\IdeaRoutes;
 use Phalcon\Init\User\UserRoutes;
 
 $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
@@ -106,6 +107,7 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 		}
 	}
 	$router->mount(new UserRoutes());
+	$router->mount(new IdeaRoutes());
     $router->removeExtraSlashes(true);
     
 	return $router;

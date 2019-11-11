@@ -25,7 +25,6 @@ abstract class Authentifier
         if ($this->isAlreadyAuthenticated()) {
             return true;
         }
-
         $user = $this->repository->ofEmail($email);
         if (!$user) {
             return false;

@@ -17,6 +17,7 @@ class SessionAuthentifier extends Authentifier
     {
         parent::__construct($repository);
         $this->session = $session;
+        $session->start();
     }
 
     protected function persistAuthentication(User $user)
