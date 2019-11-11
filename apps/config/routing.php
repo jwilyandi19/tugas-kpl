@@ -1,5 +1,7 @@
 <?php
 
+use Phalcon\Init\User\UserRoutes;
+
 $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 
 	$router = new \Phalcon\Mvc\Router(false);
@@ -103,7 +105,7 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 			}
 		}
 	}
-	
+	$router->mount(new UserRoutes());
     $router->removeExtraSlashes(true);
     
 	return $router;

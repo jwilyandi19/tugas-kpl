@@ -18,8 +18,8 @@ class UserDataTransformerImpl implements UserDataTransformer
     public function read()
     {
         return [
-            'id' => $this->user->id()->id(),
-            'num_wishes' => 0,
+            'id' => $this->user->id(),
+            'ideas' => $this->user->ideas(),
         ];
     }
 }

@@ -28,7 +28,7 @@ class User {
         $this->userId = $userId;
         $this->setEmail($email);
         $this->changePassword($password);
-        $this->ideas = new ArrayCollection();
+        $this->ideas = [];
     }
     /**
      * @param string $email
@@ -39,7 +39,11 @@ class User {
         if (!$email) {
             throw new \InvalidArgumentException('email');
         }
+<<<<<<< HEAD
         Assertion::email($email);
+=======
+
+>>>>>>> master
         $this->email = strtolower($email);
     }
     /**
@@ -75,6 +79,7 @@ class User {
         return $this->password;
     }
 
+<<<<<<< HEAD
     public function makeIdea($ideaId, $content, $description) {
         return new Idea(
             $ideaId,
@@ -82,5 +87,13 @@ class User {
             $content,
             $description
         );
+=======
+    /**
+     * @return array
+     */
+    public function ideas()
+    {
+        return $this->ideas;
+>>>>>>> master
     }
 }
