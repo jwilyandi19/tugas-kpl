@@ -10,10 +10,7 @@ class AddIdeaService extends IdeaService {
      * 
      * @return void
      */
-    public function execute($request = null) {
-        $userId = $request->userId();
-        $content = $request->content();
-        $description = $request->description();
+    public function execute($userId,$content,$description) {
 
         $user = $this->findUserOrFail($userId);
 

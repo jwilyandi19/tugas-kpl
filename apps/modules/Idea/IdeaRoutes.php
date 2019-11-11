@@ -16,5 +16,19 @@ class IdeaRoutes extends RouterGroup
             'controller' => 'Idea',
             'action' => 'index'
         ]);
+
+        $this->addGet('/create',[
+            'namespace' => 'Phalcon\Init\Idea\Controllers\Web',
+            'module' => 'idea', 
+            'controller' => 'Idea',
+            'action' => 'viewMakeIdea'
+        ]);
+
+        $this->addPost('/create',[
+            'namespace' => 'Phalcon\Init\Idea\Controllers\Web',
+            'module' => 'idea', 
+            'controller' => 'Idea',
+            'action' => 'makeIdea'
+        ]);
     }
 }

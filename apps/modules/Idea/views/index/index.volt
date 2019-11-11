@@ -14,6 +14,7 @@
     <a href="/tugas-kpl/user/login">Login disini</a>
     {% else %}
     <a href="/tugas-kpl/user/logout">Logout</a>
+    <a href="/tugas-kpl/idea/create">Buat Ide</a>
     {% endif %}
     <h1>Kumpulan Ide2</h1>
     {% for idea in ideas %}

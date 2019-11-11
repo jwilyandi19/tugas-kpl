@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create Idea</title>
 </head>
 
 <body>
@@ -14,9 +14,15 @@
     <a href="/tugas-kpl/user/login">Login disini</a>
     {% else %}
     <a href="/tugas-kpl/user/logout">Logout</a>
-    <a href="/tugas-kpl/idea/create">Buat Ide</a>
     {% endif %}
-    <h1>HALAMAN USER</h1>
+    <h1>Buat Ide</h1>
+    <form action="./create" method="post">
+        <input type="text" name="content" placeholder="Content">
+        <br>
+        <input type="text" name="description" placeholder="Description">
+        <br>
+        <input type="submit">
+    </form>
 </body>
 
 </html>
