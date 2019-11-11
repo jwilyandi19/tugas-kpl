@@ -23,4 +23,14 @@ return array(
         'defaultAction' => 'index'
     ],
 
+    'user' => [
+        'namespace' => 'Phalcon\Init\User',
+        'webControllerNamespace' => 'Phalcon\Init\User\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\User\Controllers\Api',
+        'className' => 'Phalcon\Init\User\Module',
+        'path' => APP_PATH . '/modules/user/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'user',
+        'defaultAction' => 'index'
+    ],
 );

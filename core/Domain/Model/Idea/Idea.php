@@ -6,9 +6,11 @@ class Idea {
     protected $ideaId;
     protected $content;
     protected $description;
+    protected $userId;
 
-    public function __construct($ideaId,$content,$description) {
+    public function __construct($ideaId,$userId,$content,$description) {
         $this->ideaId = $ideaId;
+        $this->userId = $userId;
         $this->setContent($content);
         $this->setDescription($description);
     }
@@ -25,6 +27,22 @@ class Idea {
             throw new \InvalidArgumentException('Deskripsi tidak boleh kosong');
         }
         $this->description = $description;
+    }
+
+    public function id() {
+        return $this->ideaId;
+    }
+
+    public function userId() {
+        return $this->userId;
+    }
+
+    public function content() {
+        return $this->content;
+    }
+
+    public function description() {
+        return $this->description;
     }
 
 
