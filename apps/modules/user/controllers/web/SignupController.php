@@ -33,7 +33,6 @@ class SignupController extends Controller{
     }
 
     public function registerAction(){
-        [$userName, $userPass] = ["", ""];
         // Check if the event is post request
         if ($this->request->isPost()) {
             // Access POST data
@@ -42,7 +41,7 @@ class SignupController extends Controller{
                 $this->request->getPost($this->userPassRequestKey)
             );
             $response = $this->signUpService->execute($signupRequest);
-            return  $this->response->setJsonContent($response);
+            return  $this->response->redirect('/../login');
         }
     }
 }
