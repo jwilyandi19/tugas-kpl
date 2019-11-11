@@ -30,5 +30,12 @@ class IdeaRoutes extends RouterGroup
             'controller' => 'Idea',
             'action' => 'makeIdea'
         ]);
+
+        $this->addPost('/rating',[
+            'namespace' => 'Phalcon\Init\Idea\Controllers\Web',
+            'module' => 'idea', 
+            'controller' => 'Idea',
+            'action' => 'addRatingScore'
+        ]);
     }
 }

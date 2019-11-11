@@ -23,6 +23,15 @@
         <p>
             {{ idea.description() }}
         </p>
+        <p>
+        Score : {{ idea.ratingScore() }}, Jumlah Pemberi Nilai: {{ idea.ratingCount() }}
+        </p>
+        <form action="rating" method="post">
+            <input type="hidden" name="ideaId" value="{{ idea.id() }}">
+            Score 1 - 5
+            <input type="number" name="ratingScore" placeholder="Score" min="1" max="5">
+            <input type="submit">
+        </form>
     </div>
     {% endfor %}
 </body>
