@@ -1,7 +1,9 @@
 <?php
 
-namespace TugasKPL\Infrastructure\Domain\Model;
+namespace Phalcon\Init\User\Controllers\Web;
 
+use Phalcon\Session\Adapter\Files as Session;
+use TugasKPL\Domain\Model\Authentifier;
 use TugasKPL\Domain\Model\User\User;
 
 class SessionAuthentifier extends Authentifier
@@ -19,16 +21,16 @@ class SessionAuthentifier extends Authentifier
 
     protected function persistAuthentication(User $user)
     {
-        $this->session->set('user', UserSecurityToken::fromUser($user));
+        $this->session->set('user', $user->id());
     }
 
-    protected function isAlreadyAuthenticated()
+    public function isAlreadyAuthenticated()
     {
         return $this->session->has('user');
     }
 
     public function logout()
     {
-        return $this->session->clear();
+        return $this->session->destroy();
     }
 }

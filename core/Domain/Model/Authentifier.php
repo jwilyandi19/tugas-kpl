@@ -41,6 +41,6 @@ abstract class Authentifier
     }
 
     abstract public function logout();
+    abstract public function isAlreadyAuthenticated();
     abstract protected function persistAuthentication(User $user);
-    abstract protected function isAlreadyAuthenticated();
 }
