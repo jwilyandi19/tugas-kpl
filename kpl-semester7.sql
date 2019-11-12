@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Nov 2019 pada 16.05
+-- Waktu pembuatan: 12 Nov 2019 pada 04.26
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -32,15 +32,19 @@ CREATE TABLE `ideas` (
   `id` varchar(32) NOT NULL,
   `user_id` varchar(32) NOT NULL,
   `content` varchar(128) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `rating_score` int(11) NOT NULL DEFAULT 0,
+  `rating_count` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `ideas`
 --
 
-INSERT INTO `ideas` (`id`, `user_id`, `content`, `description`) VALUES
-('abw7atwbra87', '1TTHxHObn74C7kI6pIPauWZMEpZ', 'Jason', '100$');
+INSERT INTO `ideas` (`id`, `user_id`, `content`, `description`, `rating_score`, `rating_count`) VALUES
+('1TU0Umj5S508RMtrsLKKivN1ZaF', '1TTQDDLuQ7inrhIIYIuJVSMrhdg', 'edwin', 'aaaaaaabbbbbcccc', 6, 11),
+('1TUyMGnffgrWq6dqSyHfa6RuSO9', '1TTQDDLuQ7inrhIIYIuJVSMrhdg', 'ada', 'ada', 3, 2),
+('abw7atwbra87', '1TTHxHObn74C7kI6pIPauWZMEpZ', 'Jason', '100$', 3037, 4);
 
 -- --------------------------------------------------------
 
@@ -78,7 +82,7 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 --
 ALTER TABLE `ideas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
 -- Indeks untuk tabel `users`
